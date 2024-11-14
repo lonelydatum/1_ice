@@ -58,7 +58,7 @@ exports.origin = origin;
 
 var _commonJsCommonJs = require('../../_common/js/common.js');
 
-(0, _commonJsCommonJs.init)(1.8);
+(0, _commonJsCommonJs.init)();
 
 },{"../../_common/js/common.js":1}]},{},[3])
 

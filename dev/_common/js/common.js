@@ -13,19 +13,19 @@ const {w, h} = bannerSize
 
 
 
-function init(){	
-	const tl = new TimelineMax({onComplete:()=>{
-		
-	}})
+function init(end=1.3){	
+	const tl = new TimelineMax({onComplete:()=>{}})
 	tl.set(".frame1", {opacity:1})
+	const SCALE = 20/250
+	const Y = Math.max(SCALE * h, 8)
+	
+	const obj = {duration:.35, opacity:0, y:`+=${Y}`}
 
-	const obj = {duration:.35, opacity:0, y:"+=20"}
-
-	tl.from(".t1a", {...obj})
+	tl.from(".t1a", {...obj}, "+=.3")
 	tl.from(".t1b", {...obj})
 	tl.from(".t1c", {...obj})
 
-	tl.from(".t2", {duration:.5, opacity:0}, "+=1")
+	tl.from(".t2", {duration:.5, opacity:0}, end)
 
 	return tl
 }
