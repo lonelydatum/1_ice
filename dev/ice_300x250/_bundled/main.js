@@ -22,21 +22,39 @@ var h = bannerSize.h;
 function init() {
 	var end = arguments.length <= 0 || arguments[0] === undefined ? 1.3 : arguments[0];
 
-	var tl = new TimelineMax({ onComplete: function onComplete() {} });
-	tl.set(".frame1", { opacity: 1 });
+	TweenLite.set(".frame1", { opacity: 1 });
+	var tl = new TimelineMax({});
+
 	var SCALE = 20 / 250;
 	var Y = Math.max(SCALE * h, 8);
 
-	var obj = { duration: .35, opacity: 0, y: "+=" + Y };
+	var obj = { duration: .35, opacity: 0 };
 
-	tl.from(".t1a", _extends({}, obj), "+=.3");
-	tl.from(".t1b", _extends({}, obj));
-	tl.from(".t1c", _extends({}, obj));
+	tl.add("change", "+=1");
 
-	tl.from(".t2", { duration: .5, opacity: 0 }, end);
+	tl.to(".f1", _extends({}, obj), "+=2");
+	tl.from(".f2", _extends({}, obj));
 
 	return tl;
 }
+
+// function init(end=1.3){	
+// 	TweenLite.set(".frame1", {opacity:1})
+// 	const tl = new TimelineMax({delay:2})
+
+// 	const SCALE = 20/250
+// 	const Y = Math.max(SCALE * h, 8)
+
+// 	const obj = {duration:.35, opacity:0, y:`+=${Y}`}
+
+// 	tl.from(".t1a", {...obj}, "+=.3")
+// 	tl.from(".t1b", {...obj})
+// 	tl.from(".t1c", {...obj})
+
+// 	tl.from(".t2", {duration:.5, opacity:0}, end)
+
+// 	return tl
+// }
 
 exports.init = init;
 exports.bannerSize = bannerSize;
