@@ -19,42 +19,30 @@ gsap.defaults({
 var w = bannerSize.w;
 var h = bannerSize.h;
 
-function init() {
-	var end = arguments.length <= 0 || arguments[0] === undefined ? 1.3 : arguments[0];
+function init(_ref) {
+	var total = _ref.total;
+	var w = _ref.w;
+	var h = _ref.h;
 
-	TweenLite.set(".frame1", { opacity: 1 });
+	w = w / 2;
+	h = h / 2;
+
+	var obj = { duration: 1, rotationX: -180, ease: "back.out" };
+
 	var tl = new TimelineMax({});
 
-	var SCALE = 20 / 250;
-	var Y = Math.max(SCALE * h, 8);
+	tl.add("all", "+=2.2");
 
-	var obj = { duration: .35, opacity: 0 };
+	for (var i = 0; i < total; i++) {
+		var wrap = "#wrap" + (i + 1);
 
-	tl.add("change", "+=1");
+		TweenLite.set(".card", { transformOrigin: "0 " + h / 2 + "px" });
+		TweenLite.set([wrap, ".cardFace"], { width: w, height: h });
 
-	tl.to(".f1", _extends({}, obj), "+=2");
-	tl.from(".f2", _extends({}, obj));
-
-	return tl;
+		var time = i * .15;
+		tl.to("#wrap" + (i + 1) + " .card", _extends({}, obj), "all+=" + time);
+	}
 }
-
-// function init(end=1.3){	
-// 	TweenLite.set(".frame1", {opacity:1})
-// 	const tl = new TimelineMax({delay:2})
-
-// 	const SCALE = 20/250
-// 	const Y = Math.max(SCALE * h, 8)
-
-// 	const obj = {duration:.35, opacity:0, y:`+=${Y}`}
-
-// 	tl.from(".t1a", {...obj}, "+=.3")
-// 	tl.from(".t1b", {...obj})
-// 	tl.from(".t1c", {...obj})
-
-// 	tl.from(".t2", {duration:.5, opacity:0}, end)
-
-// 	return tl
-// }
 
 exports.init = init;
 exports.bannerSize = bannerSize;

@@ -12,44 +12,42 @@ gsap.defaults({
 const {w, h} = bannerSize
 
 
-function init(end=1.3){	
-	TweenLite.set(".frame1", {opacity:1})
+
+
+
+function init({total, w, h}){
+
+	w = w/2
+	h = h/2
+
+	
+
+	
+
+
+	const obj = {duration:1, rotationX:-180, ease:"back.out"}
+	
 	const tl = new TimelineMax({})
-	
-	const SCALE = 20/250
-	const Y = Math.max(SCALE * h, 8)
-	
-	const obj = {duration:.35, opacity:0}
 
-	tl.add("change", "+=1")
-	
-	tl.to(".f1", {...obj}, "+=2")
-	tl.from(".f2", {...obj})
-	
 
-	return tl
+	tl.add("all", "+=2.2")
+
+
+	for(let i=0;i<total;i++){
+		const wrap = `#wrap${i+1}`  	  	
+		
+		TweenLite.set(".card", {transformOrigin:`0 ${h/2}px`});	   
+		TweenLite.set([wrap, `.cardFace`], { width:w, height:h});	   
+
+
+		const time = i*.15
+		tl.to(`#wrap${i+1} .card`,{...obj}, `all+=${time}`)
+	}
+
+
+
+
 }
-
-
-
-// function init(end=1.3){	
-// 	TweenLite.set(".frame1", {opacity:1})
-// 	const tl = new TimelineMax({delay:2})
-	
-// 	const SCALE = 20/250
-// 	const Y = Math.max(SCALE * h, 8)
-	
-// 	const obj = {duration:.35, opacity:0, y:`+=${Y}`}
-
-// 	tl.from(".t1a", {...obj}, "+=.3")
-// 	tl.from(".t1b", {...obj})
-// 	tl.from(".t1c", {...obj})
-
-// 	tl.from(".t2", {duration:.5, opacity:0}, end)
-
-// 	return tl
-// }
-
 
 
 export { init,  bannerSize}

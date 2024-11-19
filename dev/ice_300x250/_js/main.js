@@ -2,6 +2,9 @@ import {init} from '../../_common/js/common.js'
 
 
 
-init(1.8)
 
 
+
+
+
+init({total:3, w:400, h:48})

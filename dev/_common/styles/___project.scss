@@ -1,0 +1,37 @@
+
+@import './common.scss';
+
+#banner{
+	background-color: #51286b;
+}
+
+.frame1{
+	opacity: 1;
+}
+
+
+.cardWrapper {
+	position: relative;	
+	float: left;
+	perspective: 400;
+	.card{
+
+		transform-style:preserve-3d;
+		.cardFace {
+			
+			position: absolute;
+			overflow: hidden;
+			backface-visibility:hidden;
+
+			&.front{
+				// background: blue;
+			}
+			&.back{
+				// background: red;
+				transform: rotateX(180deg);
+			}
+		}
+
+	}
+}
+

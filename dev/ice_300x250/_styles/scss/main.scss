@@ -1,12 +1,20 @@
-@import '../../../_common/styles/common.scss';
+
+@import '../../../_common/styles/___project.scss';
 
 
-#banner{
-	background-color: black;
+#banner{	
 	width: 300px;
 	height: 250px;
 }
 
-.frame{
-	// opacity: 1;;
+#wrap1{
+	@include pos(42, 84);
+}
+
+#wrap2{
+	@include pos(42, 103);
+}
+
+#wrap3{
+	@include pos(42, 123);
 }
