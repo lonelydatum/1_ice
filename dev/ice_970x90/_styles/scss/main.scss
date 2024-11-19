@@ -1,4 +1,5 @@
-@import '../../../_common/styles/common.scss';
+
+@import '../../../_common/styles/___project.scss';
 
 
 #banner{
@@ -7,6 +8,11 @@
 	height: 90px;
 }
 
-.frame{
-	// opacity: 1;;
+#wrap1{
+	@include pos(292, 12);
 }
+
+#wrap2{
+	@include pos(292, 45);
+}
+

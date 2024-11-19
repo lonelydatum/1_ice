@@ -206,9 +206,63 @@ canvas, .text, .frame, .outline, img {
 }
 
 #banner {
+  background-color: #51286b;
+}
+
+.frame1 {
+  opacity: 1;
+}
+
+.cardWrapper {
+  position: relative;
+  float: left;
+  -webkit-perspective: 400;
+  perspective: 400;
+}
+
+.cardWrapper .card {
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+}
+
+.cardWrapper .card .cardFace {
+  position: absolute;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.cardWrapper .card .cardFace.back {
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+}
+
+#banner {
   background-color: black;
   width: 970px;
   height: 90px;
+}
+
+#wrap1 {
+  -webkit-transform: translate(292px, 12px);
+  -ms-transform: translate(292px, 12px);
+  transform: translate(292px, 12px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
+}
+
+#wrap2 {
+  -webkit-transform: translate(292px, 45px);
+  -ms-transform: translate(292px, 45px);
+  transform: translate(292px, 45px);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  position: absolute;
 }
 
 /*# sourceMappingURL=main.css.map */
